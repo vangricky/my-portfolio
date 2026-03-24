@@ -16,7 +16,6 @@ import {
   Code,
   Menu,
   X,
-  Layers,
   Globe,
   ShoppingBag,
   Plane,
@@ -107,7 +106,7 @@ const TypewriterTitle = memo(({ color }) => {
   );
 });
 
-/* ═══════════ SCROLL REVEAL ═══════════ */
+/* ═══════════ SCROLL REVEAL (no flash fix) ═══════════ */
 const Reveal = ({
   children,
   className = "",
@@ -116,9 +115,17 @@ const Reveal = ({
 }) => {
   const ref = useRef(null);
   const [vis, setVis] = useState(false);
+  const [ready, setReady] = useState(false);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVis(true);
+      setReady(true);
+      return;
+    }
+    setReady(true);
     const obs = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
@@ -126,7 +133,7 @@ const Reveal = ({
           obs.unobserve(el);
         }
       },
-      { threshold: 0.12 }
+      { threshold: 0.12 },
     );
     obs.observe(el);
     return () => obs.disconnect();
@@ -136,9 +143,11 @@ const Reveal = ({
       ref={ref}
       className={className}
       style={{
-        opacity: vis ? 1 : 0,
-        transform: vis ? "translateY(0)" : "translateY(40px)",
-        transition: `opacity .75s cubic-bezier(.22,1,.36,1) ${delay}s, transform .75s cubic-bezier(.22,1,.36,1) ${delay}s`,
+        opacity: !ready ? 0 : vis ? 1 : 0,
+        transform: !ready ? "none" : vis ? "translateY(0)" : "translateY(40px)",
+        transition: ready
+          ? `opacity .75s cubic-bezier(.22,1,.36,1) ${delay}s, transform .75s cubic-bezier(.22,1,.36,1) ${delay}s`
+          : "none",
         ...extraStyle,
       }}
     >
@@ -333,9 +342,7 @@ export default function Portfolio() {
           gap: 6,
           padding: "8px 16px",
           borderRadius: 10,
-          border: `1px solid ${
-            dark ? "rgba(148,163,184,0.2)" : "rgba(100,116,139,0.2)"
-          }`,
+          border: `1px solid ${dark ? "rgba(148,163,184,0.2)" : "rgba(100,116,139,0.2)"}`,
           background: "transparent",
           color: dark ? "rgba(148,163,184,0.35)" : "rgba(100,116,139,0.35)",
           fontFamily: "'Sora'",
@@ -535,43 +542,51 @@ export default function Portfolio() {
         </div>
       </nav>
 
-      {/* Mobile overlay */}
-      {mob && (
-        <div
-          style={{
-            position: "fixed",
-            top: 72,
-            inset: 0,
-            zIndex: 99,
-            background: dark ? "rgba(11,15,26,.97)" : "rgba(248,250,252,.97)",
-            backdropFilter: "blur(20px)",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: 8,
-          }}
-        >
-          {nav.map((n) => (
-            <button
-              key={n.id}
-              onClick={() => scrollTo(n.id)}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                padding: "16px 32px",
-                fontFamily: "'Sora'",
-                fontSize: 24,
-                fontWeight: active === n.id ? 700 : 400,
-                color: active === n.id ? c.acc : c.txt,
-              }}
-            >
-              {n.label}
-            </button>
-          ))}
-        </div>
-      )}
+      {/* Mobile overlay — always mounted, animated in/out */}
+      <div
+        style={{
+          position: "fixed",
+          top: 72,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          zIndex: 99,
+          background: dark ? "rgba(11,15,26,.97)" : "rgba(248,250,252,.97)",
+          backdropFilter: "blur(20px)",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: 8,
+          opacity: mob ? 1 : 0,
+          pointerEvents: mob ? "auto" : "none",
+          transform: mob ? "translateY(0)" : "translateY(-20px)",
+          transition:
+            "opacity .35s cubic-bezier(.22,1,.36,1), transform .35s cubic-bezier(.22,1,.36,1)",
+        }}
+      >
+        {nav.map((n, i) => (
+          <button
+            key={n.id}
+            onClick={() => scrollTo(n.id)}
+            style={{
+              background: "none",
+              border: "none",
+              cursor: "pointer",
+              padding: "16px 32px",
+              fontFamily: "'Sora'",
+              fontSize: 24,
+              fontWeight: active === n.id ? 700 : 400,
+              color: active === n.id ? c.acc : c.txt,
+              opacity: mob ? 1 : 0,
+              transform: mob ? "translateY(0)" : "translateY(-15px)",
+              transition: `opacity .3s cubic-bezier(.22,1,.36,1) ${mob ? 0.06 + i * 0.05 : 0}s, transform .3s cubic-bezier(.22,1,.36,1) ${mob ? 0.06 + i * 0.05 : 0}s, color .3s`,
+            }}
+          >
+            {n.label}
+          </button>
+        ))}
+      </div>
 
       {/* ══════════════════ CONTENT ══════════════════ */}
       <div style={{ position: "relative", zIndex: 1 }}>
@@ -598,41 +613,33 @@ export default function Portfolio() {
             }}
           >
             <Reveal>
-              <div style={{ position: "relative" }}>
-                <div
-                  style={{
-                    width: 280,
-                    height: 280,
-                    borderRadius: "50%",
-                    overflow: "hidden",
-                    border: `4px solid ${c.acc}`,
-                    boxShadow: `0 0 60px ${
-                      dark ? "rgba(56,189,248,.15)" : "rgba(14,165,233,.12)"
-                    }`,
-                  }}
-                >
-                  <img
-                    src="/rickyv.png"
-                    alt="Ricky Vang"
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center top",
-                    }}
-                  />
-                </div>
+              <div style={{ position: "relative", width: 380, height: 440 }}>
+                {/* Subtle gradient glow behind the photo */}
                 <div
                   style={{
                     position: "absolute",
-                    top: -8,
-                    left: -8,
-                    right: -8,
-                    bottom: -8,
+                    bottom: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    width: 280,
+                    height: 280,
                     borderRadius: "50%",
-                    border: `2px dashed ${c.ac2}`,
-                    opacity: 0.4,
-                    animation: "pulse 3s ease infinite",
+                    background: `radial-gradient(circle, ${dark ? "rgba(56,189,248,.1)" : "rgba(14,165,233,.07)"} 0%, transparent 70%)`,
+                    filter: "blur(40px)",
+                    pointerEvents: "none",
+                  }}
+                />
+                <img
+                  src="/ricky-photo.png"
+                  alt="Ricky Vang"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "contain",
+                    objectPosition: "center bottom",
+                    position: "relative",
+                    zIndex: 1,
+                    filter: `drop-shadow(0 10px 30px ${dark ? "rgba(0,0,0,.35)" : "rgba(0,0,0,.08)"})`,
                   }}
                 />
               </div>
@@ -689,7 +696,8 @@ export default function Portfolio() {
                 >
                   Building thoughtful digital experiences with modern
                   technologies. Passionate about clean code, beautiful
-                  interfaces, and solving complex problems.
+                  interfaces, AI-powered solutions, and solving complex
+                  problems.
                 </p>
               </Reveal>
               <Reveal delay={0.5}>
@@ -787,45 +795,12 @@ export default function Portfolio() {
           style={{ padding: "100px 24px", maxWidth: 900, margin: "0 auto" }}
         >
           <SectionTitle tag="Get to know me" title="About" accent="Me" />
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: 48,
-              alignItems: "flex-start",
-            }}
-          >
-            <Reveal delay={0.1}>
-              <div
-                style={{
-                  flex: "0 0 200px",
-                  height: 200,
-                  borderRadius: 20,
-                  overflow: "hidden",
-                  border: `3px solid ${c.acc}`,
-                  boxShadow: `0 20px 50px ${
-                    dark ? "rgba(56,189,248,.08)" : "rgba(14,165,233,.08)"
-                  }`,
-                }}
-              >
-                <img
-                  src="/rickyv.png"
-                  alt="Ricky"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
-                    objectPosition: "center top",
-                  }}
-                />
-              </div>
-            </Reveal>
-            <div style={{ flex: "1 1 400px" }}>
+          <div>
+            <div style={{ maxWidth: 800 }}>
               {[
-                "I'm Ricky Vang — a driven and detail-oriented technologist with a Bachelor of Science in Web Design and Development from Brigham Young University–Idaho. My journey in tech began with a deep curiosity about how software and hardware come together to create seamless user experiences, and that curiosity has only grown stronger with every project and role I've taken on.",
-                "With nearly four years of hands-on IT support experience at BYU-Idaho, I've worn many hats — from troubleshooting classroom technology and mentoring new technicians, to serving as a liaison between IT, HR, and faculty departments. I'm the kind of person who not only fixes the problem but also writes the documentation so nobody else has to struggle with it again.",
-                "Currently, I'm working as an Epic Technology Advisor at Adventist Health, where I deploy and configure healthcare systems across clinics and hospitals. From installing Workstations on Wheels to managing network infrastructure with SolarWinds and PXE boot imaging, I thrive in environments where precision and reliability are paramount.",
-                "On the development side, I love building responsive, production-ready applications using React, Node.js, and modern frameworks. Whether it's a client website for High Desert Investments or a full-stack affiliate marketing platform, I bring the same level of care and craftsmanship to every project.",
+                "I'm Ricky Vang, a technologist and developer who thrives at the intersection of building things and figuring out how they work. I earned my Bachelor of Science in Web Design and Development from Brigham Young University-Idaho, where I spent just as much time outside the classroom teaching myself new frameworks and tools as I did in lectures.",
+                "My professional journey has taken me from nearly four years as an IT Support Technician at BYU-Idaho, where I mentored teams, wrote documentation that actually got used, and kept campus technology running smoothly, to my current role as an Epic Technology Advisor at Adventist Health, where I deploy and configure critical healthcare systems across clinics and hospitals. Along the way, I've built production websites for real clients, led a university society as president, and developed full stack applications from the ground up.",
+                "Currently, I'm actively learning and building with large language models, exploring retrieval augmented generation, prompt engineering, and fine tuning techniques like QLoRA using tools such as LangChain, Hugging Face, and Gradio. Combining my web development skills with AI is where I see the future heading, and I want to be at the forefront of it. Whether it's crafting a clean user interface, configuring network infrastructure, or building an AI powered tool, I bring the same level of care, curiosity, and commitment to everything I work on.",
               ].map((t2, i) => (
                 <Reveal key={i} delay={0.15 + i * 0.1}>
                   <p
@@ -871,14 +846,14 @@ export default function Portfolio() {
               { t: "Backend", d: "Node.js, Express.js, ASP.NET, C#, Python" },
               { t: "Databases", d: "MongoDB, PostgreSQL, MySQL" },
               {
+                t: "AI & Machine Learning",
+                d: "Prompt Engineering, LLM APIs, RAG, LangChain, Hugging Face, Gradio, QLoRA Fine-tuning",
+              },
+              {
                 t: "IT & Networking",
                 d: "SolarWinds, DHCP, PXE Boot, Ivanti, Network Toning",
               },
               { t: "Tools", d: "Git, GitHub, Figma, VS Code" },
-              {
-                t: "Soft Skills",
-                d: "Leadership, Mentoring, Documentation, Cross-team Communication",
-              },
             ].map((s, i) => (
               <Reveal key={s.t} delay={0.08 + i * 0.06}>
                 <div
@@ -982,6 +957,14 @@ export default function Portfolio() {
                 github: "https://github.com/byui-cse341-f24/Group-3---Book-API",
                 live: "https://group-3-book-api.onrender.com/",
               },
+              {
+                icon: Cpu,
+                title: "AI Web Scraper & Summarizer",
+                desc: "Built a Python-based web scraper that fetches and cleans webpage text, then generates AI-powered summaries using OpenAI LLMs. The tool analyzes raw web content and produces concise, human-readable summaries for quick content digestion.",
+                tags: ["Python", "OpenAI API", "Web Scraping", "LLMs"],
+                github: "https://github.com/vangricky/llm_engineer_projects",
+                live: null,
+              },
             ].map((proj, i) => (
               <Reveal key={proj.title} delay={0.1 + i * 0.12}>
                 <div
@@ -1083,11 +1066,7 @@ export default function Portfolio() {
           id="resume"
           style={{ padding: "100px 24px", maxWidth: 860, margin: "0 auto" }}
         >
-          <SectionTitle
-            tag="My Background"
-            title="Professional"
-            accent="Resume"
-          />
+          <SectionTitle tag="My Background" accent="Resume" />
           <div
             style={{
               padding: "40px clamp(20px,4vw,48px)",
@@ -1120,12 +1099,28 @@ export default function Portfolio() {
               <ResumeEntry
                 t={c}
                 title="B.S. Web Design and Development"
-                sub="Brigham Young University – Idaho, Rexburg, ID"
+                sub="Brigham Young University – Idaho"
                 date="Dec 2025"
                 dots={[
                   "Full Stack Web Development Certificate",
                   "Web Frontend Development",
                   "Web Development",
+                ]}
+              />
+            </ResumeSection>
+            {/* AI & Generative AI */}
+            <ResumeSection t={c} g={g} title="AI & Generative AI" delay={0.17}>
+              <ResumeEntry
+                t={c}
+                title="AI & Generative AI Learning"
+                sub="In Progress/Self-Directed"
+                date="Ongoing"
+                dots={[
+                  "Learning and implementing Retrieval-Augmented Generation (RAG) for document-based AI systems",
+                  "Working with frontier and open-source models, focusing on inference and prompt engineering",
+                  "Developing AI agents and tool-using workflows",
+                  "Applying fine-tuning techniques such as QLoRA",
+                  "Using tools and frameworks including Hugging Face, LangChain, and Gradio",
                 ]}
               />
             </ResumeSection>
@@ -1137,11 +1132,11 @@ export default function Portfolio() {
                 sub="Adventist Health"
                 date="Nov 2025 – Present"
                 dots={[
-                  "Deploy Epic hardware across clinics, hospitals, and emergency departments",
-                  "Install, maintain, and troubleshoot Workstations on Wheels (WOWs) for clinical workflows",
-                  "Manage IT support tickets using Ivanti, communicating with medical staff",
+                  "Deploy Epic hardware across clinics, hospitals, and emergency departments, ensuring devices are properly configured and operational",
+                  "Install, maintain, and troubleshoot Workstations on Wheels (WOWs) to support daily clinical workflows",
+                  "Managing and resolving IT support tickets using Ivanti by communicating with medical staff and addressing hardware and software issues in a timely manner",
                   "Perform network toning and tracing in IDF closets",
-                  "Use SolarWinds for IP management including DHCP reservations",
+                  "Used SolarWinds to manage IP addressing, including modifying device IPs and creating DHCP IP reservations to ensure network stability",
                   "Utilize PXE boot for automated imaging and deployment",
                 ]}
               />
@@ -1151,11 +1146,11 @@ export default function Portfolio() {
                 sub="BYU-Idaho, Rexburg, ID"
                 date="Jul 2021 – Apr 2025"
                 dots={[
-                  "Consulted supervisors on team performance; participated in interviewing and onboarding",
-                  "Drafted and maintained technical documentation, training manuals, and blueprints",
+                  "Provided independent consultation to supervisors on team performance, gave feedback on technician effectiveness, and participated in interviewing and onboarding new hires to strengthen team capability",
+                  "Drafted, reviewed, and maintained technical documentation, training manuals, and blueprints for classroom technology, ensuring accuracy, clarity, and compliance with organizational standards. Guided the setup, maintenance, and troubleshooting of conference room technology, ensuring 100% functionality during meetings, and reducing downtime by 20%",
                   "Guided conference room tech setup, ensuring 100% functionality, reducing downtime by 20%",
-                  "Served as liaison between IT, HR, faculty, and campus departments",
-                  "Supervised and mentored new technicians; orchestrated weekly meetings for 10 team members",
+                  "Served as liaison between IT, HR, faculty, and campus departments, communicating technical information and resolving escalated performance and technology issues",
+                  "Supervised and mentored new technicians, providing hands-on training, constructive feedback, and progressive guidance to improve individual and team effectiveness. Orchestrated weekly team meetings for all 10 members on the team; Conducted training on campus technology and troubleshooting best practices with hands-on projects",
                 ]}
               />
             </ResumeSection>
@@ -1167,7 +1162,7 @@ export default function Portfolio() {
                 sub="BYU-Idaho"
                 date="Sep – Dec 2024"
                 dots={[
-                  "Led weekly strategy meetings with executive team for 10+ members",
+                  "Led weekly strategy meetings with my Vice President, Media Content Creator, Events Coordinator, and Marketing Head to plan and coordinate instructional topics and activities for 10+ members, representing society at career fairs to engage peers, parents, and prospective parents",
                   "Collaborated with adjunct professor to prototype a music portfolio website",
                 ]}
               />
@@ -1304,7 +1299,7 @@ export default function Portfolio() {
           }}
         >
           <p style={{ color: c.mut, fontSize: 13 }}>
-            &copy; {new Date().getFullYear()} Ricky Vang. Crafted with care.
+            &copy; {new Date().getFullYear()} Ricky Vang.
           </p>
         </footer>
       </div>
@@ -1443,11 +1438,11 @@ function ContactForm({ c, dark }) {
             m = document.getElementById("cf-m").value;
           window.open(
             `mailto:cheemengrvang@gmail.com?subject=${encodeURIComponent(
-              "Portfolio Contact from " + n
+              "Portfolio Contact from " + n,
             )}&body=${encodeURIComponent(
-              "Name: " + n + "\nEmail: " + e + "\n\n" + m
+              "Name: " + n + "\nEmail: " + e + "\n\n" + m,
             )}`,
-            "_blank"
+            "_blank",
           );
         }}
         className="ch"
