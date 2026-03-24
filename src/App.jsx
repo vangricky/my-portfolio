@@ -721,7 +721,6 @@ export default function Portfolio() {
                   </button>
                   <button
                     onClick={() => scrollTo("resume")}
-                    className="ch"
                     style={{
                       padding: "14px 32px",
                       borderRadius: 12,
