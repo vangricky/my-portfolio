@@ -1147,7 +1147,6 @@ export default function Portfolio() {
                 dots={[
                   "Provided independent consultation to supervisors on team performance, gave feedback on technician effectiveness, and participated in interviewing and onboarding new hires to strengthen team capability",
                   "Drafted, reviewed, and maintained technical documentation, training manuals, and blueprints for classroom technology, ensuring accuracy, clarity, and compliance with organizational standards. Guided the setup, maintenance, and troubleshooting of conference room technology, ensuring 100% functionality during meetings, and reducing downtime by 20%",
-                  "Guided conference room tech setup, ensuring 100% functionality, reducing downtime by 20%",
                   "Served as liaison between IT, HR, faculty, and campus departments, communicating technical information and resolving escalated performance and technology issues",
                   "Supervised and mentored new technicians, providing hands-on training, constructive feedback, and progressive guidance to improve individual and team effectiveness. Orchestrated weekly team meetings for all 10 members on the team; Conducted training on campus technology and troubleshooting best practices with hands-on projects",
                 ]}
