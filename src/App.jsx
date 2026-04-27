@@ -1102,8 +1102,8 @@ export default function Portfolio() {
                 date="Dec 2025"
                 dots={[
                   "Full Stack Web Development Certificate",
-                  "Web Frontend Development",
-                  "Web Development",
+                  "Web Frontend Development Certificate",
+                  "Web Development Certificate",
                 ]}
               />
             </ResumeSection>
@@ -1129,14 +1129,14 @@ export default function Portfolio() {
                 t={c}
                 title="Epic Technology Advisor — Contract"
                 sub="Adventist Health"
-                date="Nov 2025 – Present"
+                date="Nov 2025 – Apr 2026"
                 dots={[
                   "Deploy Epic hardware across clinics, hospitals, and emergency departments, ensuring devices are properly configured and operational",
                   "Install, maintain, and troubleshoot Workstations on Wheels (WOWs) to support daily clinical workflows",
                   "Managing and resolving IT support tickets using Ivanti by communicating with medical staff and addressing hardware and software issues in a timely manner",
-                  "Perform network toning and tracing in IDF closets",
+                  "Perform network toning and tracing in IDF closets to identify and verify network connections",
                   "Used SolarWinds to manage IP addressing, including modifying device IPs and creating DHCP IP reservations to ensure network stability",
-                  "Utilize PXE boot for automated imaging and deployment",
+                  "Utilized PXE boot for automated imaging and deployment of workstation systems",
                 ]}
               />
               <ResumeEntry
