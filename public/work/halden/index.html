@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Halden Studio · Architecture &amp; Interiors</title>
+  <meta name="description" content="Halden Studio designs quiet, light-filled homes, interiors and public spaces. A concept site by Ricky Vang.">
+  <meta name="theme-color" content="#f7f6f3">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23111'/%3E%3Cpath d='M18 16v32M46 16v32M18 32h28' stroke='%23f7f6f3' stroke-width='4'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#work">Skip to work</a>
+
+  <header class="header" id="header">
+    <a class="logo" href="#top" aria-label="Halden Studio, back to top">HALDEN<span>Studio</span></a>
+    <nav class="nav" id="nav" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#studio">Studio</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="nav">Menu</button>
+  </header>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="wrap hero__top">
+        <h1 class="hero__title">
+          <span class="line"><span>Quiet spaces,</span></span>
+          <span class="line"><span>built to last.</span></span>
+        </h1>
+        <div class="hero__aside">
+          <p>Halden is an architecture and interiors studio designing homes, rooms and public places shaped by light, honest materials and nothing extra.</p>
+          <a class="link-arrow" href="#work">View selected work</a>
+        </div>
+      </div>
+      <div class="hero__media">
+        <div class="hero__img" data-parallax="0.12">
+          <img src="img/facade-1600.jpg" srcset="img/facade-800.jpg 800w, img/facade-1600.jpg 1600w" sizes="100vw" alt="A board-formed concrete facade rising against a clear blue sky" fetchpriority="high">
+        </div>
+      </div>
+      <p class="wrap hero__caption"><span>Featured — Kestrel House, Bainbridge Island, 2025</span><a href="#work">See the project</a></p>
+      <div class="wrap hero__meta">
+        <p><span>Est.</span> 2014</p>
+        <p><span>Studio</span> Seattle, WA</p>
+        <p><span>Practice</span> Architecture, Interiors</p>
+        <p><span>Projects</span> 60+ completed</p>
+      </div>
+    </section>
+
+    <!-- Work -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <div class="section__head">
+          <p class="label">01 — Selected work</p>
+          <div class="filters" role="group" aria-label="Filter projects">
+            <button class="is-active" data-filter="all" aria-pressed="true">All</button>
+            <button data-filter="residential" aria-pressed="false">Residential</button>
+            <button data-filter="interiors" aria-pressed="false">Interiors</button>
+            <button data-filter="public" aria-pressed="false">Public</button>
+          </div>
+        </div>
+        <ul class="grid" id="grid"></ul>
+      </div>
+    </section>
+
+    <!-- Studio -->
+    <section class="section studio" id="studio">
+      <div class="wrap studio__grid">
+        <div>
+          <p class="label">02 — Studio</p>
+          <h2 class="h2 reveal">We design the things you notice least, and feel most.</h2>
+        </div>
+        <div class="studio__text">
+          <p class="reveal">Good rooms don't ask for attention. They hold the morning light a little longer, they stay cool in August, and they still feel right in twenty years. That is the work: removing until only what matters is left.</p>
+          <p class="reveal">We are a team of nine architects and interior designers. We take on a small number of projects each year so every one gets a partner's full attention, from the first sketch to the last switch plate.</p>
+          <dl class="numbers">
+            <div class="reveal"><dt>12</dt><dd>years in practice</dd></div>
+            <div class="reveal"><dt>60+</dt><dd>projects completed</dd></div>
+            <div class="reveal"><dt>9</dt><dd>architects &amp; designers</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="wrap principles">
+        <article class="reveal"><span>01</span><h3>Light first</h3><p>Every plan begins with the sun's path across the site. Windows are placed for the hours you'll actually use a room.</p></article>
+        <article class="reveal"><span>02</span><h3>Honest materials</h3><p>Concrete, timber, lime plaster, stone. Materials that age well and are allowed to look like what they are.</p></article>
+        <article class="reveal"><span>03</span><h3>Nothing extra</h3><p>If a detail doesn't serve the people using the space, it doesn't make it into the drawings.</p></article>
+      </div>
+      <figure class="studio__image" >
+        <div data-parallax="0.1"><img src="img/hall-1600.jpg" srcset="img/hall-800.jpg 800w, img/hall-1600.jpg 1600w" sizes="100vw" alt="A figure silhouetted against tall windows in a bright, empty hall" loading="lazy"></div>
+      </figure>
+    </section>
+
+    <!-- Process -->
+    <section class="section" id="process">
+      <div class="wrap">
+        <p class="label">03 — Process</p>
+        <h2 class="h2 process__title reveal">Four stages, one team, start to finish.</h2>
+        <ol class="process">
+          <li class="reveal"><span class="process__n">01</span><h3>Listen</h3><p>A walk through your site or space and a long conversation about how you live and work.</p><span class="process__time">2–3 weeks</span></li>
+          <li class="reveal"><span class="process__n">02</span><h3>Sketch</h3><p>Hand sketches and simple models of two or three directions, refined together into one.</p><span class="process__time">4–6 weeks</span></li>
+          <li class="reveal"><span class="process__n">03</span><h3>Detail</h3><p>Full drawings, materials and specifications, priced with trusted builders before anything is built.</p><span class="process__time">8–12 weeks</span></li>
+          <li class="reveal"><span class="process__n">04</span><h3>Build</h3><p>We stay on site through construction, solving problems early and protecting the design.</p><span class="process__time">6–14 months</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="section contact" id="contact">
+      <div class="wrap contact__grid">
+        <div>
+          <p class="label">04 — Contact</p>
+          <h2 class="h2 reveal">Tell us about your project.</h2>
+          <div class="contact__info reveal">
+            <p><span>Email</span><a href="mailto:hello@halden.example">hello@halden.example</a></p>
+            <p><span>Studio</span>Seattle, Washington</p>
+            <p><span>Hours</span>Mon–Fri, 9–5</p>
+          </div>
+        </div>
+        <form class="form" id="form" novalidate>
+          <div class="field"><input id="f-name" name="name" placeholder=" " autocomplete="name" required><label for="f-name">Your name</label></div>
+          <div class="field"><input id="f-email" name="email" type="email" placeholder=" " autocomplete="email" required><label for="f-email">Email</label></div>
+          <fieldset class="choice">
+            <legend>Project type</legend>
+            <label><input type="radio" name="type" value="New home" checked><span>New home</span></label>
+            <label><input type="radio" name="type" value="Renovation"><span>Renovation</span></label>
+            <label><input type="radio" name="type" value="Interiors"><span>Interiors</span></label>
+            <label><input type="radio" name="type" value="Public / commercial"><span>Public</span></label>
+          </fieldset>
+          <fieldset class="choice">
+            <legend>Budget</legend>
+            <label><input type="radio" name="budget" value="Under $250k" checked><span>Under $250k</span></label>
+            <label><input type="radio" name="budget" value="$250k–$1M"><span>$250k–$1M</span></label>
+            <label><input type="radio" name="budget" value="$1M+"><span>$1M+</span></label>
+          </fieldset>
+          <div class="field"><textarea id="f-msg" name="message" rows="4" placeholder=" " required></textarea><label for="f-msg">A few words about the project</label></div>
+          <button class="submit" type="submit"><span>Send inquiry</span></button>
+          <p class="form__status" id="status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__row">
+      <p class="logo">HALDEN<span>Studio</span></p>
+      <p>© <span id="year">2026</span> Halden Studio</p>
+      <a class="link-arrow" href="#top">Back to top</a>
+    </div>
+    <p class="wrap footer__note">Concept site designed &amp; built by <a href="/">Ricky Vang</a>. Halden Studio is a fictional company. Photos from Unsplash via Wikimedia Commons (CC0).</p>
+  </footer>
+
+  <!-- Project viewer -->
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-labelledby="v-title" hidden>
+    <button class="viewer__close" id="vClose" aria-label="Close project">Close</button>
+    <div class="viewer__inner">
+      <div class="viewer__img"><img id="v-img" alt=""></div>
+      <div class="viewer__text">
+        <p class="label" id="v-type"></p>
+        <h2 id="v-title"></h2>
+        <p id="v-desc"></p>
+        <dl class="facts" id="v-facts"></dl>
+        <div class="viewer__nav">
+          <button id="vPrev">← Previous</button>
+          <button id="vNext">Next →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

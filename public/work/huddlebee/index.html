@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huddlebee · Team scheduling your crew will love</title>
+  <meta name="description" content="Huddlebee makes shift scheduling, swaps and reminders effortless for small teams. A concept site by Ricky Vang.">
+  <meta name="theme-color" content="#6c4cf5">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 4l24 14v28L32 60 8 46V18z' fill='%236c4cf5'/%3E%3Ccircle cx='32' cy='32' r='11' fill='%23ffc845'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="header" id="header">
+    <div class="container header__row">
+      <a class="logo" href="#top" aria-label="Huddlebee home">
+        <svg width="38" height="38" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4l24 14v28L32 60 8 46V18z" fill="#6c4cf5"/><circle cx="32" cy="32" r="11" fill="#ffc845"/><path d="M26 32h12" stroke="#1d1747" stroke-width="3"/></svg>
+        Huddlebee
+      </a>
+      <nav class="nav" id="nav" aria-label="Main">
+        <a href="#demo">Try it</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <div class="header__cta">
+        <a class="login" href="#signup">Log in</a>
+        <a class="btn btn--purple" href="#signup">Start free</a>
+        <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="container hero__grid">
+        <div class="reveal">
+          <span class="kicker">🐝 Scheduling for small teams</span>
+          <h1>The schedule your whole team will <em class="squiggle">actually love<svg viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true"><path d="M3 12 C 40 2, 70 18, 110 9 S 180 2, 220 11 S 280 14, 297 6" fill="none" stroke="#ff6b5b" stroke-width="5" stroke-linecap="round"/></svg></em>.</h1>
+          <p class="lead">Build next week's shifts in minutes, let people swap with a tap, and stop chasing no-shows. Huddlebee keeps everyone in the loop.</p>
+          <div class="hero__ctas">
+            <a class="btn btn--purple" href="#signup">Start free for 14 days</a>
+            <button class="btn btn--light" id="watch"><span class="play"><svg width="12" height="12" viewBox="0 0 12 12"><path d="M2 1l9 5-9 5z" fill="#fff"/></svg></span>See how it works</button>
+          </div>
+          <p class="hero__note"><span>No credit card</span><span>Set up in 5 minutes</span><span>Free for teams under 10</span></p>
+        </div>
+
+        <div class="hero__art reveal" aria-hidden="true">
+          <svg viewBox="0 0 600 540">
+            <defs>
+              <pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="3" fill="#1d1747" opacity=".18"/></pattern>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="160%"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#1d1747" flood-opacity=".18"/></filter>
+            </defs>
+            <path d="M120 120 C 200 20, 420 0, 520 110 C 610 210, 590 380, 470 450 C 350 520, 150 520, 80 420 C 20 330, 50 200, 120 120Z" fill="#ece8ff"/>
+            <rect x="18" y="118" width="110" height="88" fill="url(#dots)"/>
+            <circle cx="530" cy="70" r="46" fill="#ffc845"/>
+            <path d="M0 540 A 90 90 0 0 1 180 540Z" fill="#17c3a5"/>
+            <g class="spin"><path d="M470 300 l8 18 18 8 -18 8 -8 18 -8 -18 -18 -8 18 -8z" fill="#ff6b5b"/></g>
+            <path d="M470 500 c 20 -20, 40 20, 60 0 s 40 20, 60 0" fill="none" stroke="#ff6b5b" stroke-width="7" stroke-linecap="round"/>
+
+            <!-- the schedule card -->
+            <g transform="translate(-20 -30)"><g class="bob2" filter="url(#soft)">
+              <rect x="250" y="70" width="290" height="250" rx="24" fill="#fff"/>
+              <path d="M250 94 a24 24 0 0 1 24 -24 h242 a24 24 0 0 1 24 24 v32 h-290z" fill="#6c4cf5"/>
+              <text x="274" y="106" font-family="Poppins, sans-serif" font-weight="600" font-size="17" fill="#fff">This week</text>
+              <circle cx="486" cy="99" r="6" fill="#ffc845"/><circle cx="506" cy="99" r="6" fill="#ff6b5b"/><circle cx="526" cy="99" r="6" fill="#17c3a5" class="blink"/>
+              <g font-family="DM Sans, sans-serif" font-weight="700" font-size="12" text-anchor="middle">
+                <rect x="268" y="144" width="56" height="42" rx="11" fill="#ffc845"/><text x="296" y="170" fill="#1d1747">AM</text>
+                <rect x="334" y="144" width="56" height="42" rx="11" fill="#f3f1fa"/>
+                <rect x="400" y="144" width="56" height="42" rx="11" fill="#17c3a5"/><text x="428" y="170" fill="#fff">PM</text>
+                <rect x="466" y="144" width="56" height="42" rx="11" fill="#ffc845"/><text x="494" y="170" fill="#1d1747">AM</text>
+                <rect x="268" y="196" width="56" height="42" rx="11" fill="#f3f1fa"/>
+                <rect x="334" y="196" width="56" height="42" rx="11" fill="#ff6b5b"/><text x="362" y="222" fill="#fff">PM</text>
+                <rect x="400" y="196" width="56" height="42" rx="11" fill="#f3f1fa"/>
+                <rect x="466" y="196" width="56" height="42" rx="11" fill="#17c3a5"/><text x="494" y="222" fill="#fff">PM</text>
+                <rect x="268" y="248" width="56" height="42" rx="11" fill="#ffb4c8"/><text x="296" y="274" fill="#1d1747">AM</text>
+                <rect x="334" y="248" width="56" height="42" rx="11" fill="#f3f1fa"/>
+                <rect x="400" y="248" width="56" height="42" rx="11" fill="#ffc845"/><text x="428" y="274" fill="#1d1747">AM</text>
+                <rect x="466" y="248" width="56" height="42" rx="11" fill="#f3f1fa"/>
+              </g>
+            </g></g>
+
+            <!-- notification -->
+            <g transform="translate(-22 -150)"><g class="bob" filter="url(#soft)">
+              <rect x="40" y="186" width="190" height="62" rx="31" fill="#fff"/>
+              <circle cx="72" cy="217" r="18" fill="#17c3a5"/>
+              <path d="M64 217l6 6 11-12" stroke="#fff" stroke-width="3.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <text x="100" y="212" font-family="Poppins, sans-serif" font-weight="600" font-size="14" fill="#1d1747">Shift swapped!</text>
+              <text x="100" y="231" font-family="DM Sans, sans-serif" font-size="12.5" fill="#5b5680">Maya ↔ Leo · Thu PM</text>
+            </g></g>
+
+            <!-- person A: standing, reaching up to the schedule -->
+            <g>
+              <path d="M150 335 C145 400 130 440 118 492 L146 497 C160 450 172 400 178 340Z" fill="#1d1747"/>
+              <path d="M178 335 C190 400 210 445 226 488 L252 480 C238 430 214 385 205 335Z" fill="#1d1747"/>
+              <ellipse cx="128" cy="500" rx="24" ry="9" fill="#ff6b5b"/>
+              <ellipse cx="245" cy="489" rx="24" ry="9" fill="#ff6b5b" transform="rotate(-16 245 489)"/>
+              <path d="M138 252 C116 288 110 322 120 352" fill="none" stroke="#f2a07b" stroke-width="22" stroke-linecap="round"/>
+              <path d="M126 236 C150 212 198 212 216 238 L212 346 C186 354 150 354 126 346Z" fill="#ff6b5b"/>
+              <path d="M200 252 C232 232 256 214 280 196" fill="none" stroke="#f2a07b" stroke-width="22" stroke-linecap="round"/>
+              <circle cx="286" cy="191" r="13" fill="#f2a07b"/>
+              <rect x="162" y="196" width="18" height="28" rx="6" fill="#f2a07b"/>
+              <circle cx="171" cy="186" r="26" fill="#f2a07b"/>
+              <path d="M145 186 C140 150 196 140 199 178 C188 166 166 166 148 194Z" fill="#1d1747"/>
+            </g>
+
+            <!-- person B: sitting on a block, waving, phone in hand -->
+            <g transform="translate(22 34)">
+              <rect x="395" y="402" width="150" height="92" rx="18" fill="#ffc845"/>
+              <path d="M455 398 L380 420 L384 446 L464 430Z" fill="#1d1747"/>
+              <path d="M381 420 L392 500 L416 498 L405 420Z" fill="#1d1747"/>
+              <ellipse cx="404" cy="503" rx="22" ry="8" fill="#ff6b5b"/>
+              <path d="M432 392 L360 404 L362 430 L442 424Z" fill="#2c246a"/>
+              <path d="M360 405 L350 490 L375 493 L385 410Z" fill="#2c246a"/>
+              <ellipse cx="361" cy="496" rx="22" ry="8" fill="#ff6b5b"/>
+              <path d="M424 300 C438 280 482 280 494 302 L490 404 L426 404Z" fill="#6c4cf5"/>
+              <g class="wave"><path d="M488 314 C514 292 524 262 520 232" fill="none" stroke="#8b5a3c" stroke-width="20" stroke-linecap="round"/><circle cx="520" cy="226" r="12" fill="#8b5a3c"/></g>
+              <path d="M432 318 C410 342 404 362 420 374" fill="none" stroke="#8b5a3c" stroke-width="20" stroke-linecap="round"/>
+              <rect x="410" y="342" width="24" height="40" rx="6" fill="#1d1747" transform="rotate(-12 422 362)"/>
+              <rect x="413" y="347" width="18" height="28" rx="3" fill="#8fd3ff" transform="rotate(-12 422 362)"/>
+              <rect x="451" y="262" width="17" height="26" rx="6" fill="#8b5a3c"/>
+              <circle cx="460" cy="252" r="25" fill="#8b5a3c"/>
+              <circle cx="482" cy="226" r="13" fill="#1d1747"/>
+              <path d="M436 254 C430 222 474 214 486 240 C472 232 452 234 440 262Z" fill="#1d1747"/>
+            </g>
+
+            <!-- plant -->
+            <path d="M60 470 h60 l-8 50 h-44z" fill="#6c4cf5"/>
+            <path d="M90 470 C70 430 60 410 72 380 C88 400 96 430 90 470Z" fill="#17c3a5"/>
+            <path d="M92 470 C100 420 120 400 140 396 C138 425 120 450 92 470Z" fill="#0f9c84"/>
+            <path d="M88 470 C60 455 40 440 36 418 C60 420 80 440 88 470Z" fill="#0f9c84"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <div class="cloud">
+      <div class="container">
+        <p>Teams at 4,000+ cafés, clinics and shops plan their week on Huddlebee</p>
+        <ul aria-label="Example customers"><li><i></i>Brewline</li><li><i></i>Petalworks</li><li><i></i>Northpeak</li><li><i></i>Clinic&amp;Co</li><li><i></i>Shelfspace</li></ul>
+      </div>
+    </div>
+
+    <section class="section demo" id="demo">
+      <div class="container">
+        <div class="center reveal">
+          <span class="kicker">Try it right here</span>
+          <h2 class="h2">Plan a week in 30 seconds.</h2>
+          <p class="lead">Click any cell to cycle Off → Morning → Evening. Coverage updates as you go. Hit <strong>Auto-fill</strong> and let Huddlebee balance it for you.</p>
+        </div>
+        <div class="board reveal">
+          <div class="board__top">
+            <h3>Brewline Café · Week 47</h3>
+            <div class="legend"><span><i style="background:#ffc845"></i>Morning</span><span><i style="background:#17c3a5"></i>Evening</span><span><i style="background:#f3f1fa"></i>Off</span></div>
+            <div class="board__actions"><button class="chip-btn" id="autofill">✨ Auto-fill</button><button class="chip-btn" id="clear">Clear</button></div>
+          </div>
+          <div class="grid-wrap"><table class="shifts" id="shifts"><caption class="skip">Weekly shift schedule</caption></table></div>
+          <div class="board__foot"><span id="hours"></span><span id="status" role="status" aria-live="polite"></span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <div class="center reveal">
+          <span class="kicker">Features</span>
+          <h2 class="h2">Less admin. More huddle.</h2>
+        </div>
+        <div class="feature-tabs" role="tablist" aria-label="Features">
+          <button role="tab" id="ft-1" aria-controls="fp-1" aria-selected="true">Build schedules</button>
+          <button role="tab" id="ft-2" aria-controls="fp-2" aria-selected="false" tabindex="-1">Swap shifts</button>
+          <button role="tab" id="ft-3" aria-controls="fp-3" aria-selected="false" tabindex="-1">Smart reminders</button>
+        </div>
+
+        <div class="feature" role="tabpanel" id="fp-1" aria-labelledby="ft-1">
+          <div class="feature__art" aria-hidden="true">
+            <svg viewBox="0 0 440 320">
+              <circle cx="380" cy="60" r="34" fill="#ffc845"/>
+              <rect x="40" y="40" width="300" height="200" rx="18" fill="#1d1747"/>
+              <rect x="54" y="54" width="272" height="172" rx="10" fill="#fff"/>
+              <g><rect x="70" y="72" width="70" height="30" rx="8" fill="#ffc845"/><rect x="150" y="72" width="70" height="30" rx="8" fill="#17c3a5"/><rect x="230" y="72" width="80" height="30" rx="8" fill="#f3f1fa"/>
+              <rect x="70" y="112" width="70" height="30" rx="8" fill="#f3f1fa"/><rect x="150" y="112" width="70" height="30" rx="8" fill="#ff6b5b"/><rect x="230" y="112" width="80" height="30" rx="8" fill="#ffc845"/>
+              <rect x="70" y="152" width="70" height="30" rx="8" fill="#ffb4c8"/><rect x="150" y="152" width="70" height="30" rx="8" fill="#f3f1fa"/><rect x="230" y="152" width="80" height="30" rx="8" fill="#17c3a5"/></g>
+              <path d="M20 250 h340 l-20 22 h-300z" fill="#6c4cf5"/>
+              <path d="M300 168 l0 52 l14 -12 l10 22 l12 -6 l-10 -21 l18 -2z" fill="#ff6b5b" stroke="#1d1747" stroke-width="4" stroke-linejoin="round"/>
+              <path d="M380 210 c-10 20 -6 50 10 70" fill="none" stroke="#17c3a5" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Build next week in minutes, not hours.</h3>
+            <p>Start from last week, a template, or a blank board. Huddlebee flags gaps and overtime before you publish.</p>
+            <ul><li>Reusable templates for busy and quiet weeks</li><li>Overtime and coverage warnings</li><li>Publish to everyone's phone in one tap</li></ul>
+          </div>
+        </div>
+
+        <div class="feature" role="tabpanel" id="fp-2" aria-labelledby="ft-2" hidden>
+          <div class="feature__art" aria-hidden="true">
+            <svg viewBox="0 0 440 320">
+              <circle cx="70" cy="70" r="40" fill="#ffb4c8"/>
+              <rect x="150" y="20" width="150" height="280" rx="28" fill="#1d1747"/>
+              <rect x="162" y="40" width="126" height="240" rx="16" fill="#fff"/>
+              <circle cx="200" cy="100" r="22" fill="#f2a07b"/><path d="M178 98 c0 -24 44 -26 44 0 c-10 -8 -30 -8 -44 0z" fill="#1d1747"/>
+              <circle cx="252" cy="190" r="22" fill="#8b5a3c"/><path d="M230 186 c2 -22 44 -22 44 2 c-12 -6 -30 -8 -44 -2z" fill="#1d1747"/>
+              <path d="M222 120 c30 0 40 20 36 44" fill="none" stroke="#6c4cf5" stroke-width="7" stroke-linecap="round"/><path d="M248 156 l10 10 l10 -12" fill="none" stroke="#6c4cf5" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M232 170 c-30 0 -40 -20 -36 -44" fill="none" stroke="#ff6b5b" stroke-width="7" stroke-linecap="round"/><path d="M206 134 l-10 -10 l-10 12" fill="none" stroke="#ff6b5b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="180" y="236" width="90" height="28" rx="14" fill="#17c3a5"/><text x="225" y="255" text-anchor="middle" font-family="DM Sans" font-weight="700" font-size="13" fill="#fff">Approve</text>
+              <path d="M330 300 c10 -40 60 -60 90 -40" fill="none" stroke="#ffc845" stroke-width="12" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Swaps without the group chat chaos.</h3>
+            <p>Someone can't make Thursday? They offer the shift, a teammate claims it, and you approve with one tap.</p>
+            <ul><li>Swap and drop requests in the app</li><li>Only qualified people can claim a shift</li><li>Manager approval, or auto-approve rules</li></ul>
+          </div>
+        </div>
+
+        <div class="feature" role="tabpanel" id="fp-3" aria-labelledby="ft-3" hidden>
+          <div class="feature__art" aria-hidden="true">
+            <svg viewBox="0 0 440 320">
+              <circle cx="360" cy="250" r="50" fill="#8fd3ff"/>
+              <path d="M150 220 c0 -90 30 -130 70 -130 s70 40 70 130z" fill="#ffc845"/>
+              <rect x="130" y="214" width="180" height="26" rx="13" fill="#1d1747"/>
+              <circle cx="220" cy="258" r="18" fill="#1d1747"/>
+              <circle cx="290" cy="96" r="30" fill="#ff6b5b"/><text x="290" y="106" text-anchor="middle" font-family="Poppins" font-weight="700" font-size="26" fill="#fff">2</text>
+              <path d="M90 120 c-20 10 -30 30 -26 54M60 100 c-34 18 -46 52 -40 88" fill="none" stroke="#6c4cf5" stroke-width="8" stroke-linecap="round"/>
+              <path d="M350 120 c20 10 30 30 26 54M380 100 c34 18 46 52 40 88" fill="none" stroke="#6c4cf5" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div>
+            <h3>Reminders that cut no-shows in half.</h3>
+            <p>Friendly nudges the night before and an hour ahead, by app notification or text, in each person's language.</p>
+            <ul><li>Automatic reminders by app or SMS</li><li>Clock-in from a phone, with location check</li><li>No-show alerts sent to managers</li></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container stats">
+        <div class="stat reveal"><strong>4,000+</strong><span>teams scheduling weekly</span></div>
+        <div class="stat reveal"><strong>6 hrs</strong><span>saved per manager, per week</span></div>
+        <div class="stat reveal"><strong>−48%</strong><span>fewer no-shows</span></div>
+        <div class="stat reveal"><strong>4.8 ★</strong><span>average app rating</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="pricing" style="padding-top:0">
+      <div class="container">
+        <div class="center reveal">
+          <span class="kicker">Pricing</span>
+          <h2 class="h2">Simple pricing that grows with you.</h2>
+          <p class="lead">Free for small crews. Pay per person as you grow. Cancel anytime.</p>
+        </div>
+        <div class="pricing__controls reveal">
+          <div class="toggle"><span>Monthly</span><button class="switch" id="yearly" role="switch" aria-checked="false" aria-label="Bill yearly"></button><span>Yearly <span class="save">Save 20%</span></span></div>
+          <label class="seats" for="seats">Team size <input type="range" id="seats" min="1" max="100" value="12"><output id="seatsOut">12 people</output></label>
+        </div>
+        <div class="plans">
+          <article class="plan reveal" data-plan="starter"><h3>Starter</h3><p>For small crews getting organized.</p><div class="price"><strong>$0</strong><span class="per">forever</span></div><p class="total" id="t-starter"></p><ul><li>Up to 10 people</li><li>Weekly scheduling</li><li>Shift reminders</li></ul><a class="btn btn--light" href="#signup">Start free</a></article>
+          <article class="plan plan--pop reveal" data-plan="team"><span class="plan__badge">Most popular</span><h3>Team</h3><p>Everything a growing team needs.</p><div class="price"><strong id="p-team">$4</strong><span class="per">/ person / mo</span></div><p class="total" id="t-team"></p><ul><li>Unlimited people</li><li>Shift swaps &amp; approvals</li><li>Time clock &amp; timesheets</li><li>SMS reminders</li></ul><a class="btn btn--light" href="#signup">Try Team free</a></article>
+          <article class="plan reveal" data-plan="business"><h3>Business</h3><p>For multiple locations.</p><div class="price"><strong id="p-business">$7</strong><span class="per">/ person / mo</span></div><p class="total" id="t-business"></p><ul><li>Everything in Team</li><li>Multi-location scheduling</li><li>Labor cost forecasting</li><li>Payroll integrations</li></ul><a class="btn btn--light" href="#signup">Talk to sales</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0">
+      <div class="container">
+        <div class="center reveal"><span class="kicker">Loved by teams</span><h2 class="h2">Managers sleep better.</h2></div>
+        <div class="quotes">
+          <article class="quote reveal"><p>“I used to spend Sunday nights on the schedule. Now it takes ten minutes and nobody texts me about swaps.”</p><footer><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#ffc845"/><circle cx="26" cy="24" r="11" fill="#f2a07b"/><path d="M14 22c0-14 24-14 24 0-6-5-18-5-24 0z" fill="#1d1747"/><path d="M8 52c2-12 10-16 18-16s16 4 18 16z" fill="#6c4cf5"/></svg><div><strong>Maya Torres</strong><small>Owner, Brewline Café</small></div></footer></article>
+          <article class="quote reveal"><p>“No-shows dropped by half in the first month. The reminders alone paid for it.”</p><footer><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#8fd3ff"/><circle cx="26" cy="24" r="11" fill="#8b5a3c"/><circle cx="35" cy="13" r="6" fill="#1d1747"/><path d="M15 23c0-13 22-13 22 0-6-4-16-4-22 0z" fill="#1d1747"/><path d="M8 52c2-12 10-16 18-16s16 4 18 16z" fill="#ff6b5b"/></svg><div><strong>Leo Park</strong><small>Ops lead, Northpeak Clinics</small></div></footer></article>
+          <article class="quote reveal"><p>“Our part-timers actually like using it. That has never happened with any software we've bought.”</p><footer><svg viewBox="0 0 52 52" aria-hidden="true"><circle cx="26" cy="26" r="26" fill="#ffb4c8"/><circle cx="26" cy="24" r="11" fill="#6b3fa0"/><path d="M14 26c-2-16 26-18 24-2-4-8-18-8-24 2z" fill="#1d1747"/><path d="M8 52c2-12 10-16 18-16s16 4 18 16z" fill="#17c3a5"/></svg><div><strong>Ava Brooks</strong><small>Manager, Petalworks</small></div></footer></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="faq" style="padding-top:0">
+      <div class="container">
+        <div class="center reveal"><span class="kicker">FAQ</span><h2 class="h2">Questions, answered.</h2></div>
+        <div class="faq" id="faqList">
+          <div class="faq__item"><button class="faq__q" aria-expanded="false">Is Huddlebee really free for small teams? <i aria-hidden="true"></i></button><div class="faq__a"><div><p>Yes. Teams of up to 10 people can use Starter free forever, with weekly scheduling and reminders included.</p></div></div></div>
+          <div class="faq__item"><button class="faq__q" aria-expanded="false">Does my team need to download an app? <i aria-hidden="true"></i></button><div class="faq__a"><div><p>The iOS and Android apps are the easiest way, but everything also works in a phone's web browser, and reminders can go by text.</p></div></div></div>
+          <div class="faq__item"><button class="faq__q" aria-expanded="false">Can I import my current schedule? <i aria-hidden="true"></i></button><div class="faq__a"><div><p>Upload a spreadsheet and Huddlebee maps people and shifts for you. Most teams are set up in about five minutes.</p></div></div></div>
+          <div class="faq__item"><button class="faq__q" aria-expanded="false">What happens after the 14-day trial? <i aria-hidden="true"></i></button><div class="faq__a"><div><p>You choose a plan, or drop to Starter if you have 10 people or fewer. We never charge without asking first.</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="signup" style="padding-top:0">
+      <div class="container">
+        <div class="signup reveal">
+          <div>
+            <h2>Ready to huddle?</h2>
+            <p>Start your free 14-day trial. Your first schedule will be live before your coffee gets cold.</p>
+            <form id="signupForm" novalidate>
+              <label class="skip" for="su-email">Work email</label>
+              <input id="su-email" type="email" placeholder="you@work.com" autocomplete="email">
+              <button class="btn btn--purple" type="submit">Start free</button>
+            </form>
+            <p class="msg" id="suMsg" role="status" aria-live="polite"></p>
+          </div>
+          <svg viewBox="0 0 300 260" aria-hidden="true" style="max-width:320px;justify-self:center">
+            <circle cx="150" cy="140" r="110" fill="#fff" opacity=".55"/>
+            <path d="M80 250 C 90 180, 210 180, 220 250Z" fill="#6c4cf5"/>
+            <rect x="140" y="140" width="20" height="30" rx="7" fill="#f2a07b"/>
+            <circle cx="150" cy="122" r="32" fill="#f2a07b"/>
+            <path d="M118 120 C112 80 188 76 184 118 C170 104 140 102 122 128Z" fill="#1d1747"/>
+            <path d="M210 210 C240 180 250 140 240 110" fill="none" stroke="#f2a07b" stroke-width="18" stroke-linecap="round"/>
+            <rect x="222" y="74" width="38" height="44" rx="8" fill="#ff6b5b"/><path d="M226 84h30v14c0 8-6 12-15 12s-15-4-15-12z" fill="#fff" opacity=".35"/><path d="M260 86c10 0 14 8 6 16" fill="none" stroke="#ff6b5b" stroke-width="5"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div><a class="logo" href="#top"><svg width="34" height="34" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 4l24 14v28L32 60 8 46V18z" fill="#6c4cf5"/><circle cx="32" cy="32" r="11" fill="#ffc845"/></svg>Huddlebee</a><p style="margin-top:12px;color:var(--ink-soft);max-width:30ch">Scheduling, swaps and reminders for teams who work in shifts.</p></div>
+        <div><h4>Product</h4><ul><li><a href="#demo">Live demo</a></li><li><a href="#features">Features</a></li><li><a href="#pricing">Pricing</a></li></ul></div>
+        <div><h4>Company</h4><ul><li><a href="#faq">FAQ</a></li><li><a href="#signup">Start free</a></li></ul></div>
+        <div><h4>Get the app</h4><ul><li>iOS &amp; Android</li><li>Works in any browser</li></ul></div>
+      </div>
+      <div class="footer__note"><p>© <span id="year">2026</span> Huddlebee</p><p>Concept site designed &amp; built by <a href="/">Ricky Vang</a>. Huddlebee is a fictional product. Illustrations drawn in code.</p></div>
+    </div>
+  </footer>
+
+  <div class="modal" id="howModal" role="dialog" aria-modal="true" aria-labelledby="howTitle" hidden>
+    <div class="modal__box">
+      <button class="modal__close" id="howClose" aria-label="Close">×</button>
+      <h3 id="howTitle" class="poppins" style="font-size:26px">How Huddlebee works</h3>
+      <ol class="steps" id="howSteps">
+        <li><b>1</b><div><strong>Add your team</strong><br>Import a spreadsheet or invite people by text.</div></li>
+        <li><b>2</b><div><strong>Build the week</strong><br>Drop shifts on the board or auto-fill from availability.</div></li>
+        <li><b>3</b><div><strong>Publish</strong><br>Everyone gets their schedule on their phone instantly.</div></li>
+        <li><b>4</b><div><strong>Relax</strong><br>Swaps, reminders and clock-ins run themselves.</div></li>
+      </ol>
+      <div class="bar"><i id="howBar"></i></div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
